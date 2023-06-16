@@ -9,7 +9,8 @@
 To get started run `docker-compose up -d`
 
 Server should start up and a GraphQL Playground should be available under `localhost:3000/graphql` 
-You can find on the right hand site docs and available queries.
+
+On the right hand site you can find _Docs_ about available queries as well as the _Schema_, which you can download or copy to use in your frontend.
 
 ## Installation
 
@@ -84,18 +85,3 @@ $ yarn run test:cov
   }
 }}
 ```
-
-
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).

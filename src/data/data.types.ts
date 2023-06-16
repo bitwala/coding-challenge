@@ -41,11 +41,11 @@ export class Transaction {
   fee: number;
 
   // Assuming vin and vout as arrays of strings
-  @Field((type) => [String])
-  vin: string[];
+  @Field((type) => [Vin])
+  vin: Vin[];
 
-  @Field((type) => [String])
-  vout: string[];
+  @Field((type) => [Vout])
+  vout: Vout[];
 
   // Status can be a nested object
   @Field((type) => TransactionStatus)

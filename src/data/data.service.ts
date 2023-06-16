@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
+import { Transaction, TransactionStatus } from './data.types';
 
 const blockstreamUrl = 'https://blockstream.info/api';
 
@@ -16,14 +17,15 @@ export class DataService {
   }
 
   // Transaction endpoints
-  async getTransaction(txid: string): Promise<any> {
+  async getTransaction(txid: string): Promise<Transaction> {
     const response = await axios.get(`${blockstreamUrl}/tx/${txid}`);
     return response.data;
   }
 
-  async getTransactionStatus(txid: string): Promise<any> {
+  async getTransactionStatus(txid: string): Promise<TransactionStatus> {
     const response = await axios.get(`${blockstreamUrl}/tx/${txid}/status`);
-    return response.data;
+    const transactionStatus: TransactionStatus = JSON.parse(response.data);
+    return transactionStatus;
   }
 
   async getTransactionHex(txid: string): Promise<any> {

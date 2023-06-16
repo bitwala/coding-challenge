@@ -48,7 +48,8 @@ $ yarn run test:cov
 
 ## Example Queries
 
-`{getBlockTransactions(hash: "00000000000000000000c46287836d6018f1e6b2c02e33bd60e5c0681bcfe211",index: 50){
+```GraphQL
+{getBlockTransactions(hash: "00000000000000000000c46287836d6018f1e6b2c02e33bd60e5c0681bcfe211",index: 50){
   txid
   fee
   vout {
@@ -57,9 +58,10 @@ $ yarn run test:cov
   status {
     block_hash
   }
-}}`
+}}
+```
 
-`
+```GraphQL
 {getTransaction(txid:"27ed44d37b0e0a30d8c85c85a8cf6e7bf632207130a4447932ce057646f2e1de"){
 	txid
   version
@@ -81,7 +83,7 @@ $ yarn run test:cov
     block_time
   }
 }}
-`
+```
 
 
 ## Support

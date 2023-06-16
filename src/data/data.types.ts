@@ -104,3 +104,90 @@ export class MempoolInfo {
   @Field((type) => [[Number]])
   fee_histogram: number[][];
 }
+
+@ObjectType()
+export class Vout {
+  @Field()
+  scriptpubkey: string;
+
+  @Field()
+  scriptpubkey_asm: string;
+
+  @Field()
+  scriptpubkey_type: string;
+
+  @Field({ nullable: true })
+  scriptpubkey_address: string;
+
+  @Field()
+  value: number;
+}
+
+@ObjectType()
+export class Vin {
+  @Field()
+  txid: string;
+
+  @Field()
+  vout: number;
+
+  @Field({ nullable: true })
+  prevout: Vout;
+
+  @Field()
+  scriptsig: string;
+
+  @Field()
+  scriptsig_asm: string;
+
+  @Field((type) => [String], { nullable: true })
+  witness: string[];
+
+  @Field()
+  is_coinbase: boolean;
+
+  @Field()
+  sequence: number;
+
+  @Field({ nullable: true })
+  inner_redeemscript_asm: string;
+}
+
+@ObjectType()
+export class BlockTransactions {
+  @Field()
+  txid: string;
+
+  @Field()
+  version: number;
+
+  @Field()
+  locktime: number;
+
+  @Field((type) => [Vin])
+  vin: Vin[];
+
+  @Field((type) => [Vout])
+  vout: Vout[];
+
+  @Field()
+  size: number;
+
+  @Field()
+  weight: number;
+
+  @Field()
+  fee: number;
+
+  @Field((type) => TransactionStatus)
+  status: TransactionStatus;
+}
+
+@ObjectType()
+export class FeeEstimate {
+  @Field()
+  confirmationTarget: number;
+
+  @Field()
+  estimatedFee: number;
+}

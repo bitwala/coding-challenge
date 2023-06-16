@@ -2,6 +2,9 @@ import { Resolver, Query, Args } from '@nestjs/graphql';
 import { DataService } from '../data/data.service';
 import {
   Block,
+  BlockStatus,
+  BlockTransactions,
+  FeeEstimate,
   MempoolInfo,
   Transaction,
   TransactionStatus,
@@ -36,12 +39,12 @@ export class DataResolver {
     return await this.dataService.getTransactionStatus(txid);
   }
 
-  @Query(() => JSON)
+  @Query(() => BlockStatus)
   async getBlockStatus(@Args('hash') hash: string) {
     return await this.dataService.getBlockStatus(hash);
   }
 
-  @Query(() => JSON)
+  @Query(() => BlockTransactions)
   async getBlockTransactions(
     @Args('hash') hash: string,
     @Args('index') index: number,
@@ -59,8 +62,14 @@ export class DataResolver {
     return await this.dataService.getMempoolTxids();
   }
 
-  @Query(() => JSON)
+  @Query((returns) => [FeeEstimate])
   async getFeeEstimates() {
-    return await this.dataService.getFeeEstimates();
+    const estimates = await this.dataService.getFeeEstimates();
+    return Object.entries(estimates).map(
+      ([confirmationTarget, estimatedFee]) => ({
+        confirmationTarget: parseInt(confirmationTarget, 10),
+        estimatedFee,
+      }),
+    );
   }
 }

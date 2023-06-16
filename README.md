@@ -26,6 +26,11 @@
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
+To get started run `docker-compose up -d`
+
+Server should start up and a GraphQL Playground should be available under `localhost:3000/graphql` 
+You can find on the right hand site docs and available queries.
+
 ## Installation
 
 ```bash

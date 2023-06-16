@@ -96,8 +96,11 @@ export class DataService {
     hash: string,
     startIndex: number,
   ): Promise<BlockTransactions[]> {
+    const correctedIndex =
+      startIndex % 25 == 0 ? startIndex : startIndex - (startIndex % 25);
+
     const response = await axios.get<BlockTransactions[]>(
-      `${blockstreamUrl}/block/${hash}/txs/${startIndex}`,
+      `${blockstreamUrl}/block/${hash}/txs/${correctedIndex}`,
     );
     return response.data;
   }

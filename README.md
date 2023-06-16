@@ -43,6 +43,47 @@ $ yarn run test:e2e
 $ yarn run test:cov
 ```
 
+
+# GraphQL
+
+## Example Queries
+
+`{getBlockTransactions(hash: "00000000000000000000c46287836d6018f1e6b2c02e33bd60e5c0681bcfe211",index: 50){
+  txid
+  fee
+  vout {
+    value
+  }
+  status {
+    block_hash
+  }
+}}`
+
+`
+{getTransaction(txid:"27ed44d37b0e0a30d8c85c85a8cf6e7bf632207130a4447932ce057646f2e1de"){
+	txid
+  version
+  locktime
+  size
+  weight
+  fee
+  vin {
+    txid
+    vout
+  }
+  vout {
+    value
+  }
+  status {
+    confirmed
+    block_height
+    block_hash
+    block_time
+  }
+}}
+`
+
+
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).

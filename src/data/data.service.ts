@@ -95,8 +95,8 @@ export class DataService {
   async getBlockTransactions(
     hash: string,
     startIndex: number,
-  ): Promise<BlockTransactions> {
-    const response = await axios.get(
+  ): Promise<BlockTransactions[]> {
+    const response = await axios.get<BlockTransactions[]>(
       `${blockstreamUrl}/block/${hash}/txs/${startIndex}`,
     );
     return response.data;

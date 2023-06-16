@@ -44,7 +44,7 @@ export class DataResolver {
     return await this.dataService.getBlockStatus(hash);
   }
 
-  @Query(() => BlockTransactions)
+  @Query((returns) => [BlockTransactions])
   async getBlockTransactions(
     @Args('hash') hash: string,
     @Args('index') index: number,

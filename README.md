@@ -4,7 +4,7 @@
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+This coding challenge is based on the [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
 To get started run `docker-compose up -d`
 
@@ -19,7 +19,10 @@ $ yarn install
 ```
 
 ## Running the app
+### Docker (recommended)
+`docker-compose up -d`
 
+### Local
 ```bash
 # development
 $ yarn run start

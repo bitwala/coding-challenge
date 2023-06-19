@@ -156,4 +156,10 @@ The example Queries list all data that can be retrieved from the Queries, omit t
 }
 ```
 
-
+```GraphQL
+{
+  getTransactionHex(
+    txid: "05f3f2ed502e5c046572f4a6f2064b4d7b55463b21cb688c65e117ae3cde567c"
+  )
+}
+```

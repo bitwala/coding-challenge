@@ -38,7 +38,7 @@ export class DataService {
     return transactionStatus;
   }
 
-  async getTransactionHex(txid: string): Promise<any> {
+  async getTransactionHex(txid: string): Promise<string> {
     const response = await axios.get(`${blockstreamUrl}/tx/${txid}/hex`);
     return response.data;
   }

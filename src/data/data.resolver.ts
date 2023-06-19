@@ -9,7 +9,6 @@ import {
   FeeEstimate,
   MempoolInfo,
   Outspend,
-  Outspends,
   Transaction,
   TransactionStatus,
   TxMerkleProof,
@@ -59,6 +58,11 @@ export class DataResolver {
   @Query(() => [Outspend])
   async getTransactionOutspends(@Args('txid') txid: string) {
     return await this.dataService.getTransactionOutspends(txid);
+  }
+
+  @Query(() => String)
+  async getTransactionHex(@Args('txid') txid: string) {
+    return await this.dataService.getTransactionHex(txid);
   }
 
   //no need for postTransaction

@@ -184,10 +184,112 @@ export class BlockTransactions {
 }
 
 @ObjectType()
+export class AddressTransactions extends BlockTransactions {}
+
+@ObjectType()
 export class FeeEstimate {
   @Field()
   confirmationTarget: number;
 
   @Field()
   estimatedFee: number;
+}
+
+@ObjectType()
+export class ChainStats {
+  @Field()
+  funded_txo_count: number;
+
+  @Field()
+  funded_txo_sum: number;
+
+  @Field()
+  spent_txo_count: number;
+
+  @Field()
+  spent_txo_sum: number;
+
+  @Field()
+  tx_count: number;
+}
+
+@ObjectType()
+export class AddressInfo {
+  @Field()
+  address: string;
+
+  @Field(() => ChainStats)
+  chain_stats: ChainStats;
+
+  @Field(() => ChainStats)
+  mempool_stats: ChainStats;
+}
+
+@ObjectType()
+export class Status {
+  @Field()
+  confirmed: boolean;
+
+  @Field()
+  block_height: number;
+
+  @Field()
+  block_hash: string;
+
+  @Field()
+  block_time: number;
+}
+
+@ObjectType()
+export class Utxo {
+  @Field()
+  txid: string;
+
+  @Field()
+  vout: number;
+
+  @Field(() => Status)
+  status: Status;
+
+  @Field()
+  value: number;
+}
+
+@ObjectType()
+export class TxMerkleProof {
+  @Field()
+  block_height: number;
+
+  @Field((type) => [String])
+  merkle: string[];
+
+  @Field()
+  pos: number;
+}
+
+@ObjectType()
+export class OutspendStatus {
+  @Field()
+  confirmed: boolean;
+}
+
+@ObjectType()
+export class Outspend {
+  @Field()
+  spent: boolean;
+
+  @Field({ nullable: true })
+  txid?: string;
+
+  @Field({ nullable: true })
+  vin?: number;
+
+  @Field((type) => OutspendStatus, { nullable: true })
+  status?: OutspendStatus;
+}
+
+@ObjectType()
+export class Outspends {
+  @Field((type) => [Outspend])
+  txOutspends: Outspend[];
 }

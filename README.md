@@ -10,7 +10,7 @@ To get started run `docker-compose up -d`
 
 Server should start up and a GraphQL Playground should be available under `localhost:3000/graphql` 
 
-On the right hand site you can find _Docs_ about available queries as well as the _Schema_, which you can download or copy to use in your frontend.
+On the right hand site you can find **_Docs_** about available queries as well as the **_Schema_**, which you can download or copy to use in your frontend.
 
 ## Installation
 
@@ -85,3 +85,70 @@ $ yarn run test:cov
   }
 }}
 ```
+
+```GraphQL
+{
+  getAddressInfo(address: "bc1q9p0h7xsvh7c0nscz4lxgr6jf0umnf4uzu530h8") {
+    address
+    chain_stats {
+    	funded_txo_count
+      funded_txo_sum
+      spent_txo_count
+      spent_txo_sum
+      tx_count
+    }
+    mempool_stats {
+      funded_txo_count
+      funded_txo_sum
+      spent_txo_count
+      spent_txo_sum
+      tx_count
+    }
+  }
+}
+```
+
+
+```GraphQL
+{
+  getTransactionMerkleProof(
+    txid: "05f3f2ed502e5c046572f4a6f2064b4d7b55463b21cb688c65e117ae3cde567c"
+  ) {
+    block_height
+    merkle
+    pos
+  }
+}
+```
+
+```GraphQL
+{
+  getTransactionOutspends(
+    txid: "05f3f2ed502e5c046572f4a6f2064b4d7b55463b21cb688c65e117ae3cde567c"
+  ) {
+    spent
+    txid
+    vin
+    status {
+      confirmed
+    }
+  }
+}
+```
+
+```GraphQL
+{
+  getTransactionOutspend(
+    txid: "05f3f2ed502e5c046572f4a6f2064b4d7b55463b21cb688c65e117ae3cde567c", vout: 0
+  ) {
+    spent
+    txid
+    vin
+    status {
+      confirmed
+    }
+  }
+}
+```
+
+

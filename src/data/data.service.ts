@@ -1,9 +1,15 @@
 import { Injectable } from '@nestjs/common';
 import axios from 'axios';
 import {
+  AddressInfo,
+  AddressTransactions,
   BlockTransactions,
+  Outspend,
+  Outspends,
   Transaction,
   TransactionStatus,
+  TxMerkleProof,
+  Utxo,
 } from './data.types';
 
 const blockstreamUrl = 'https://blockstream.info/api';
@@ -37,21 +43,21 @@ export class DataService {
     return response.data;
   }
 
-  async getTransactionMerkleProof(txid: string): Promise<any> {
+  async getTransactionMerkleProof(txid: string): Promise<TxMerkleProof> {
     const response = await axios.get(
       `${blockstreamUrl}/tx/${txid}/merkle-proof`,
     );
     return response.data;
   }
 
-  async getTransactionOutspend(txid: string, vout: number): Promise<any> {
+  async getTransactionOutspend(txid: string, vout: number): Promise<Outspend> {
     const response = await axios.get(
       `${blockstreamUrl}/tx/${txid}/outspend/${vout}`,
     );
     return response.data;
   }
 
-  async getTransactionOutspends(txid: string): Promise<any> {
+  async getTransactionOutspends(txid: string): Promise<Outspends> {
     const response = await axios.get(`${blockstreamUrl}/tx/${txid}/outspends`);
     return response.data;
   }
@@ -62,19 +68,21 @@ export class DataService {
   }
 
   // Address endpoints
-  async getAddressInfo(address: string): Promise<any> {
+  async getAddressInfo(address: string): Promise<AddressInfo> {
     const response = await axios.get(`${blockstreamUrl}/address/${address}`);
     return response.data;
   }
 
-  async getAddressTransactions(address: string): Promise<any> {
+  async getAddressTransactions(
+    address: string,
+  ): Promise<AddressTransactions[]> {
     const response = await axios.get(
       `${blockstreamUrl}/address/${address}/txs`,
     );
     return response.data;
   }
 
-  async getAddressUTXO(address: string): Promise<any> {
+  async getAddressUTXO(address: string): Promise<Utxo> {
     const response = await axios.get(
       `${blockstreamUrl}/address/${address}/utxo`,
     );

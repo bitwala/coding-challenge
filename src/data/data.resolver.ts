@@ -1,13 +1,19 @@
 import { Resolver, Query, Args } from '@nestjs/graphql';
 import { DataService } from '../data/data.service';
 import {
+  AddressInfo,
+  AddressTransactions,
   Block,
   BlockStatus,
   BlockTransactions,
   FeeEstimate,
   MempoolInfo,
+  Outspend,
+  Outspends,
   Transaction,
   TransactionStatus,
+  TxMerkleProof,
+  Utxo,
 } from './data.types';
 
 @Resolver('Data')
@@ -20,7 +26,7 @@ export class DataResolver {
   }
 
   @Query(() => String)
-  async getLatestBlockhash() {
+  async getLatestBlockHash() {
     return await this.dataService.getLatestBlockhash();
   }
 
@@ -29,14 +35,59 @@ export class DataResolver {
     return await this.dataService.getTransaction(txid);
   }
 
-  @Query(() => Block)
-  async getBlock(@Args('hash') hash: string) {
-    return await this.dataService.getBlock(hash);
-  }
-
   @Query(() => TransactionStatus)
   async getTransactionStatus(@Args('txid') txid: string) {
     return await this.dataService.getTransactionStatus(txid);
+  }
+
+  //getTransactionMerkleProof
+  @Query(() => TxMerkleProof)
+  async getTransactionMerkleProof(@Args('txid') txid: string) {
+    return await this.dataService.getTransactionMerkleProof(txid);
+  }
+
+  //getTransactionOutspend
+  @Query(() => Outspend)
+  async getTransactionOutspend(
+    @Args('txid') txid: string,
+    @Args('vout') vout: number,
+  ) {
+    return await this.dataService.getTransactionOutspend(txid, vout);
+  }
+
+  //getTransactionOutspends
+  @Query(() => [Outspend])
+  async getTransactionOutspends(@Args('txid') txid: string) {
+    return await this.dataService.getTransactionOutspends(txid);
+  }
+
+  //no need for postTransaction
+
+  // Address Resolvers
+
+  // getAddressInfo
+  @Query(() => AddressInfo)
+  async getAddressInfo(@Args('address') address: string) {
+    return await this.dataService.getAddressInfo(address);
+  }
+
+  // getAddressTransactions
+  @Query(() => [AddressTransactions])
+  async getAddressTransactions(@Args('address') address: string) {
+    return await this.dataService.getAddressTransactions(address);
+  }
+
+  // getAddressUtxos
+  @Query(() => Utxo)
+  async getAddressUtxos(@Args('address') address: string) {
+    return await this.dataService.getAddressUTXO(address);
+  }
+
+  // Block Resolvers
+
+  @Query(() => Block)
+  async getBlock(@Args('hash') hash: string) {
+    return await this.dataService.getBlock(hash);
   }
 
   @Query(() => BlockStatus)

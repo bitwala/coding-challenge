@@ -2,6 +2,29 @@
   <a href="http://nestjs.com/" target="blank"><img src="https://userimg-assets.customeriomail.com/images/client-env-65797/1685522835841_Logo_mandarin_01H1RFTTFWVB00G2D2DK3NKD2Y.png" width="200" alt="Nest Logo" /></a>
 </p>
 
+# Coding Challenge Introduction
+
+Welcome to our coding challenge! We have built an exciting task for you that will require you to flex your React Native muscles and tap into the power of blockchain technology.
+
+For this task, you will be provided with a robust backend setup based on the Nest framework Typescript starter repository. The backend service will be up and running with a simple `docker-compose up` command, freeing you from the hassle of backend setup.
+
+Your main task is to code a frontend in React Native that interfaces with this backend. Your application should utilize the available GraphQL queries to perform different actions. We recommend you use this opportunity to create a basic blockchain explorer that allows users to explore the latest blocks and transactions. 
+
+This challenge is designed to evaluate your skills in building intuitive UIs, implementing navigation, and leveraging APIs in React Native. 
+
+Here are three other ideas for tasks, considering the scope of the available endpoints and the 3-hour implementation window:
+
+1. **Transaction Inspector**: Create an interface where users can input a transaction hash. Use the `getTransaction`, `getTransactionStatus`, `getTransactionHex`, and `getTransactionMerkleProof` endpoints to fetch and display comprehensive transaction details.
+
+2. **Address Analyzer**: Develop a feature that allows users to input a Bitcoin address and use the `getAddressInfo`, `getAddressTransactions`, and `getAddressUtxos` endpoints to provide an in-depth analysis of the address, including its transactions, unspent outputs, and more.
+
+3. **Mempool Monitor**: Implement a screen that uses the `getMempoolInfo` and `getMempoolTxids` endpoints to provide a real-time overview of the current mempool status, including the number of transactions waiting to be confirmed, transaction IDs, and more.
+
+Remember, the focus here is not just on functionality but also on usability and design. So pay attention to the UI/UX aspects of your solution. Good luck, and we look forward to seeing your solution!
+
+_Note: Make sure to carefully check the documentation for each GraphQL query to understand the input parameters and return types._
+
+-----
 ## Description
 
 This coding challenge is based on the [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

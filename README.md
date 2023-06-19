@@ -12,7 +12,7 @@ Your main task is to code a frontend in React Native that interfaces with this b
 
 This challenge is designed to evaluate your skills in building intuitive UIs, implementing navigation, and leveraging APIs in React Native. 
 
-Here are three other ideas for tasks, considering the scope of the available endpoints and the 3-hour implementation window:
+Here are three other ideas for tasks:
 
 1. **Transaction Inspector**: Create an interface where users can input a transaction hash. Use the `getTransaction`, `getTransactionStatus`, `getTransactionHex`, and `getTransactionMerkleProof` endpoints to fetch and display comprehensive transaction details.
 

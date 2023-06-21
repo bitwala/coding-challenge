@@ -8,7 +8,10 @@ Welcome to our coding challenge! We have built an exciting task for you that wil
 
 For this task, you will be provided with a robust backend setup based on the Nest framework Typescript starter repository. The backend service will be up and running with a simple `docker-compose up` command, freeing you from the hassle of backend setup.
 
-Your main task is to code a frontend in React Native that interfaces with this backend. Your application should utilize the available GraphQL queries to perform different actions. We recommend you use this opportunity to create a basic blockchain explorer that allows users to explore the latest blocks and transactions. 
+Your main task is to code a frontend in React Native that interfaces with this backend. Your application should utilize the available GraphQL queries to perform different actions. We recommend you use this opportunity to create a basic blockchain explorer (see https://blockstream.info/) that allows users to explore the latest blocks and transactions. 
+
+
+  ![Rough outline of the idea for coding challenge](images/app_sketch.svg)
 
 This challenge is designed to evaluate your skills in building intuitive UIs, implementing navigation, and leveraging APIs in React Native. 
 
@@ -187,5 +190,11 @@ The example Queries list all data that can be retrieved from the Queries, omit t
   getTransactionHex(
     txid: "05f3f2ed502e5c046572f4a6f2064b4d7b55463b21cb688c65e117ae3cde567c"
   )
+}
+```
+
+```GraphQL
+{
+  getMempoolTxids
 }
 ```

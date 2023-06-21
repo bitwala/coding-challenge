@@ -46,7 +46,7 @@ $ yarn install
 
 ## Running the app
 ### Docker (recommended)
-`docker-compose up -d`
+`docker-compose up`
 
 ### Local
 ```bash

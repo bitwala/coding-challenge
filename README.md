@@ -11,7 +11,7 @@ For this task, you will be provided with a robust backend setup based on the Nes
 Your main task is to code a frontend in React Native that interfaces with this backend. Your application should utilize the available GraphQL queries to perform different actions. We recommend you use this opportunity to create a basic blockchain explorer (see https://blockstream.info/) that allows users to explore the latest blocks and transactions. 
 
 
-  ![Rough outline of the idea for coding challenge](images/app_sketch.svg)
+  ![Rough outline of the idea for coding challenge](images/app_sketch.png)
 
 This challenge is designed to evaluate your skills in building intuitive UIs, implementing navigation, and leveraging APIs in React Native. 
 

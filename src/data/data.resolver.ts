@@ -94,6 +94,18 @@ export class DataResolver {
     return await this.dataService.getBlock(hash);
   }
 
+  @Query(() => [Block])
+  async getTenLatestBlocks(
+    @Args('startingHeight', { nullable: true }) number?: number,
+  ) {
+    return await this.dataService.getBlocks(number);
+  }
+
+  @Query(() => String)
+  async getBlockHashAtHeight(@Args('height') height: number) {
+    return await this.dataService.getBlockhashAtHeight(height);
+  }
+
   @Query(() => BlockStatus)
   async getBlockStatus(@Args('hash') hash: string) {
     return await this.dataService.getBlockStatus(hash);

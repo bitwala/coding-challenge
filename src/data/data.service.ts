@@ -3,6 +3,7 @@ import axios from 'axios';
 import {
   AddressInfo,
   AddressTransactions,
+  Block,
   BlockTransactions,
   Outspend,
   Outspends,
@@ -90,8 +91,20 @@ export class DataService {
   }
 
   // Block endpoints
-  async getBlock(hash: string): Promise<any> {
+  async getBlock(hash: string): Promise<Block> {
     const response = await axios.get(`${blockstreamUrl}/block/${hash}`);
+    return response.data;
+  }
+
+  async getBlocks(number?: number): Promise<[Block]> {
+    const response = await axios.get(`${blockstreamUrl}/blocks/${number}`);
+    return response.data;
+  }
+
+  async getBlockhashAtHeight(height?: number): Promise<[string]> {
+    const response = await axios.get(
+      `${blockstreamUrl}/block-height/${height}`,
+    );
     return response.data;
   }
 

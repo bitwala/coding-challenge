@@ -198,3 +198,31 @@ The example Queries list all data that can be retrieved from the Queries, omit t
   getMempoolTxids
 }
 ```
+
+```GraphQL
+{
+  getBlockHashAtHeight(height: 100000)
+}
+```
+### get 10 latest blocks
+
+```GraphQL
+{
+  getTenLatestBlocks{
+    id
+    height
+    tx_count
+  }
+}
+```
+
+### get 10 latest blocks from startHeight 100.000
+```GraphQL
+{
+  getTenLatestBlocks(startingHeight: 100000){
+    id
+    height
+    tx_count
+  }
+}
+```

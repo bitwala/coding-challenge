@@ -34,7 +34,7 @@ This coding challenge is based on the [Nest](https://github.com/nestjs/nest) fra
 
 To get started run `docker-compose up -d`
 
-Server should start up and a GraphQL Playground should be available under `localhost:3000/graphql` 
+Server should start up and a GraphQL Playground should be available under `http://localhost:3000/graphql` 
 
 On the right hand site you can find **_Docs_** about available queries as well as the **_Schema_**, which you can download or copy to use in your frontend.
 
